@@ -49,12 +49,19 @@
     <Compile Include="Configuration\FileSystemDistributorSection.cs" />
     <Compile Include="Configuration\RuleElement.cs" />
     <Compile Include="Configuration\RuleElementCollection.cs" />
+    <Compile Include="FileSystemDistributor.cs" />
     <Compile Include="FileSystemDistributorProgram.cs" />
     <Compile Include="FileSystemWatcherService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Interfaces\ILogger.cs" />
+    <Compile Include="Utils\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resources.en-US.resx" />
+    <EmbeddedResource Include="Resources\Resources.ru-RU.resx" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
