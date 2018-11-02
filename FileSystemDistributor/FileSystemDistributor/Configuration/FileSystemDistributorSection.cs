@@ -1,11 +1,20 @@
 ﻿using System.Configuration;
 using System.Globalization;
-using System.IO;
 
 namespace FileSystemDistributor.Configuration
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="System.Configuration.ConfigurationSection" />
     public class FileSystemDistributorSection : ConfigurationSection
     {
+        /// <summary>
+        /// Gets the culture.
+        /// </summary>
+        /// <value>
+        /// The culture.
+        /// </value>
         [ConfigurationProperty("culture", DefaultValue = "en-US")]
         public CultureInfo Culture
         {
@@ -15,6 +24,12 @@ namespace FileSystemDistributor.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the directories.
+        /// </summary>
+        /// <value>
+        /// The directories.
+        /// </value>
         [ConfigurationProperty("directories")]
         [ConfigurationCollection(typeof(DirectoryElement), AddItemName = "directory")]
         public DirectoryElementCollection Directories
@@ -25,6 +40,12 @@ namespace FileSystemDistributor.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the rules.
+        /// </summary>
+        /// <value>
+        /// The rules.
+        /// </value>
         [ConfigurationProperty("rules")]
         [ConfigurationCollection(typeof(RuleElement), AddItemName = "rule")]
         public RuleElementCollection Rules

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemDistributor.Configuration
 {
@@ -17,6 +14,11 @@ namespace FileSystemDistributor.Configuration
         protected override object GetElementKey(ConfigurationElement element)
         {
             return ((DirectoryElement)element).DirectoryPath;
+        }
+
+        internal IEnumerable<DirectoryElement> ToList()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace FileSystemDistributor.Configuration
 {
     public class RuleElementCollection : ConfigurationElementCollection
     {
+
+        [ConfigurationProperty("defaultFolder")]
+        public string DefaultFolder
+        {
+            get
+            {
+                return (string)this["defaultFolder"];
+            }
+        }
+
         protected override ConfigurationElement CreateNewElement()
         {
             return new RuleElement();

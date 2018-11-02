@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemDistributor.Utils.Interfaces
 {
@@ -21,18 +17,10 @@ namespace FileSystemDistributor.Utils.Interfaces
         void LogException(Exception ex);
 
         /// <summary>
-        /// Log exception details and the given message. Parameters passed in to the function logging the exception will be logged as well.
-        /// </summary>
-        /// <param name="ex">Exception to log</param>
-        /// <param name="parameters">Parameter values passed in to any function from which the given exception was raised. Tuple is variable name and value</name></param>
-        void LogException(Exception ex, params Tuple<string, string>[] parameters);
-
-        /// <summary>
-        /// Log exception details and the given message. Parameters passed in to the function logging the exception will be logged as well.
+        /// Log exception details and the given message.
         /// </summary>
         /// <param name="ex">Exception to log</param>
         /// <param name="message">Message about the exception</param>
-        /// <param name="parameters">Parameter values passed in to any function from which the given exception was raised. Tuple is variable name and value</name></param>
-        void LogException(Exception ex, string message, params Tuple<string, string>[] parameters);
+        void LogException(Exception ex, string message);
     }
 }

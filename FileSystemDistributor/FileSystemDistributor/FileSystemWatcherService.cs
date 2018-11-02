@@ -1,48 +1,101 @@
 ﻿using FileSystemDistributor.Configuration;
+using FileSystemDistributor.Utils.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Strings = FileSystemDistributor.Resources.Strings;
+using FileSystemDistributor.EventArgs;
+using FileSystemDistributor.Models;
+using FileSystemDistributor.Utils;
 
 namespace FileSystemDistributor
 {
-    public class FileSystemWatcherService
-    {
-        List<DirectoryElement> directories;
-        List<FileSystemWatcher> fileSystemWatchers;
+	public class FileSystemWatcherService
+	{
+		private List<FileSystemWatcher> fileSystemWatchers;
+		private ILogger log;
 
-        public FileSystemWatcherService(List<DirectoryElement> directories)
-        {
-            this.directories = directories;
-            MonitorDirectories();
-        }
+		/// <summary>
+		/// Occurs when [on file created].
+		/// </summary>
+		public event EventHandler<FileCreatedEventArgs> OnFileCreated;
 
-        private  void MonitorDirectories()
-        {
-            foreach (var directory in directories)
-            {
-                // Create a new FileSystemWatcher and set its properties.
-                FileSystemWatcher watcher = new FileSystemWatcher(directory.DirectoryPath);
-                /* Watch for changes in LastAccess and LastWrite times, and
-                   the renaming of files or directories. */
-                watcher.NotifyFilter = NotifyFilters.FileName;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="FileSystemWatcherService"/> class.
+		/// </summary>
+		public FileSystemWatcherService()
+		{
+			this.log = new Logger();
+			this.fileSystemWatchers = new List<FileSystemWatcher>();
+		}
 
-                // Add event handlers.
-                watcher.Created += new FileSystemEventHandler(OnChanged);
+		/// <summary>
+		/// Initializes a new instance of the <see cref="FileSystemWatcherService"/> class.
+		/// </summary>
+		/// <param name="log">The log.</param>
+		public FileSystemWatcherService(ILogger log)
+		{
+			this.log = log;
+			this.fileSystemWatchers = new List<FileSystemWatcher>();
+		}
 
-                // Begin watching.
-                watcher.EnableRaisingEvents = true;
-            }
-            
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="FileSystemWatcherService"/> class.
+		/// </summary>
+		/// <param name="watchers">The watchers.</param>
+		public FileSystemWatcherService(List<FileSystemWatcher> watchers)
+		{
+			this.fileSystemWatchers = watchers;
+		}
 
-        // Define the event handlers.
-        private static void OnChanged(object source, FileSystemEventArgs e)
-        {
-            // Specify what is done when a file is changed, created, or deleted.
-            Console.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
-        }
-    }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="FileSystemWatcherService"/> class.
+		/// </summary>
+		/// <param name="watchers">The watchers.</param>
+		public FileSystemWatcherService(List<FileSystemWatcher> watchers, ILogger log)
+		{
+			this.log = log;
+			this.fileSystemWatchers = watchers;
+		}
+
+		/// <summary>
+		/// Initializes the specified context.
+		/// </summary>
+		/// <param name="context">The context.</param>
+		public void Init(FileSystemWatcherConfigurationModel context)
+		{
+			if (context != null && context.Directories != null)
+			{
+				foreach (var directory in context.Directories)
+				{
+					var watcher = new FileSystemWatcher(directory)
+					{
+						NotifyFilter = context.NotifyFilter,
+						EnableRaisingEvents = context.EnableRaisingEvents,
+						IncludeSubdirectories = context.IncludeSubdirectories
+					};
+
+					watcher.Created += (s, args) => { this.OnCreated(args.Name, args.FullPath); };
+					fileSystemWatchers.Add(watcher);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Called when [created].
+		/// </summary>
+		/// <param name="name">The name.</param>
+		/// <param name="path">The path.</param>
+		private void OnCreated(string name, string path)
+		{
+			log.Log(string.Format(Strings.FileFound, name, File.GetCreationTime(path)));
+
+			var temp = this.OnFileCreated;
+
+			if (temp != null)
+			{
+				this.OnFileCreated(this, new FileCreatedEventArgs { Name = name, FilePath = path });
+			}
+		}
+	}
 }
