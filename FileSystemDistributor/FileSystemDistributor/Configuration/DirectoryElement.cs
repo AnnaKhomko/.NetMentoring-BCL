@@ -1,11 +1,20 @@
 ﻿using System.Configuration;
-using System.IO;
 
 namespace FileSystemDistributor.Configuration
 {
-    public class DirectoryElement : ConfigurationElement
+	/// <summary>
+	///  Class describes directory element from App.config file
+	/// </summary>
+	/// <seealso cref="System.Configuration.ConfigurationElement" />
+	public class DirectoryElement : ConfigurationElement
     {
-        [ConfigurationProperty("path", IsKey = true)]
+		/// <summary>
+		/// Gets the directory path.
+		/// </summary>
+		/// <value>
+		/// The directory path.
+		/// </value>
+		[ConfigurationProperty("path", IsKey = true)]
         public string DirectoryPath
         {
             get

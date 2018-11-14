@@ -8,17 +8,22 @@ using System.Text;
 using System.Globalization;
 using System.Threading;
 using System.Text.RegularExpressions;
+using FileSystemDistributor.Models;
+using IoCContainer.Attributes;
 
 namespace FileSystemDistributor
 {
-    public class FileSystemDistributor
+	/// <summary>
+	/// Class contains logic
+	/// </summary>
+	public class FileSystemDistributor
     {
-        private List<RuleElement> rules;
+        private List<RuleModel> rules;
         private DirectoryInfo defaultDir;
         private ILogger log;
         private const int FileCheckTimoutMiliseconds = 2000;
 
-        public FileSystemDistributor(List<RuleElement> rules, DirectoryInfo defaultDir, ILogger log)
+        public FileSystemDistributor(List<RuleModel> rules, DirectoryInfo defaultDir, ILogger log)
         {
             this.rules = rules;
             this.defaultDir = defaultDir;
@@ -26,11 +31,11 @@ namespace FileSystemDistributor
         }
 
 		/// <summary>
-		/// 
+		/// Moves the file according rules provided in config.
 		/// </summary>
-		/// <param name="name"></param>
-		/// <param name="sourcePath"></param>
-        public void MoveFile(string name, string sourcePath)
+		/// <param name="name">The name.</param>
+		/// <param name="sourcePath">The source path.</param>
+		public void MoveFile(string name, string sourcePath)
         {
             int matchCount = 0;
             foreach (var rule in rules)
@@ -55,11 +60,11 @@ namespace FileSystemDistributor
         }
 
 		/// <summary>
-		/// 
+		/// Moves the specified file from source path to destination path.
 		/// </summary>
-		/// <param name="sourcePath"></param>
-		/// <param name="destinationPath"></param>
-        private void Move(string sourcePath, string destinationPath)
+		/// <param name="sourcePath">The source path.</param>
+		/// <param name="destinationPath">The destination path.</param>
+		private void Move(string sourcePath, string destinationPath)
         {
             // Create directory if it is not exists yet
             string dir = Path.GetDirectoryName(destinationPath);
@@ -95,7 +100,14 @@ namespace FileSystemDistributor
             } while (!ableToAccess);
         }
 
-        private string CreateDestinationPath(RuleElement rule, string name, int matchCount)
+		/// <summary>
+		/// Creates the destination path.
+		/// </summary>
+		/// <param name="rule">The rule.</param>
+		/// <param name="name">The name.</param>
+		/// <param name="matchCount">The match count.</param>
+		/// <returns></returns>
+		private string CreateDestinationPath(RuleModel rule, string name, int matchCount)
         {
             string ext = Path.GetExtension(name);
             string fileName = Path.GetFileNameWithoutExtension(name);

@@ -1,11 +1,20 @@
 ﻿using System.Configuration;
-using System.Text.RegularExpressions;
 
 namespace FileSystemDistributor.Configuration
 {
-    public class RuleElement : ConfigurationElement
+	/// <summary>
+	///  Class describes rule element from App.config file
+	/// </summary>
+	/// <seealso cref="System.Configuration.ConfigurationElement" />
+	public class RuleElement : ConfigurationElement
     {
-        [ConfigurationProperty("fileNameTemplate", IsKey = true)]
+		/// <summary>
+		/// Gets the file name template.
+		/// </summary>
+		/// <value>
+		/// The file name template.
+		/// </value>
+		[ConfigurationProperty("fileNameTemplate", IsKey = true)]
         public string FileNameTemplate
         {
             get
@@ -14,7 +23,13 @@ namespace FileSystemDistributor.Configuration
             }
         }
 
-        [ConfigurationProperty("destinationDirectoryPath")]
+		/// <summary>
+		/// Gets the destination directory path.
+		/// </summary>
+		/// <value>
+		/// The destination directory path.
+		/// </value>
+		[ConfigurationProperty("destinationDirectoryPath")]
         public string DestinationDirectoryPath
         {
             get
@@ -23,7 +38,13 @@ namespace FileSystemDistributor.Configuration
             }
         }
 
-        [ConfigurationProperty("isOrderRequired")]
+		/// <summary>
+		/// Gets a value indicating whether this instance is order required.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this instance is order required; otherwise, <c>false</c>.
+		/// </value>
+		[ConfigurationProperty("isOrderRequired")]
         public bool IsOrderRequired
         {
             get
@@ -32,7 +53,13 @@ namespace FileSystemDistributor.Configuration
             }
         }
 
-        [ConfigurationProperty("isDateRequired")]
+		/// <summary>
+		/// Gets a value indicating whether this instance is date required.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if this instance is date required; otherwise, <c>false</c>.
+		/// </value>
+		[ConfigurationProperty("isDateRequired")]
         public bool IsDateRequired
         {
             get

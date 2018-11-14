@@ -1,13 +1,11 @@
-﻿using FileSystemDistributor.Utils.Interfaces;
+﻿using FileSystemDistributor.Resources;
+using FileSystemDistributor.Utils.Interfaces;
 using System;
 
 namespace FileSystemDistributor.Utils
 {
-    public class Logger : ILogger
+	public class Logger : ILogger
     {
-        private const string sectionSeparatorStart = "************************ Exception Information ****************************";
-        private const string sectionSeparatorEnd = "***************************************************************************";
-
         public void Log(string message)
         {
             Console.WriteLine(message);
@@ -19,22 +17,22 @@ namespace FileSystemDistributor.Utils
         }
         public void LogException(Exception ex, string message = "")
         {
-            Console.WriteLine(sectionSeparatorStart);
+            Console.WriteLine(Strings.LoggerStartSeparator);
             Console.WriteLine(ex);
             if (ex.Data.Keys.Count > 0)
             {
-                Console.WriteLine("Exception Data:");
+                Console.WriteLine(Strings.ExceptionDataMessage);
                 foreach (var key in ex.Data.Keys)
                 {
-                    Console.WriteLine(key + ": " + ex.Data[key].ToString());//to use string format
+                    Console.WriteLine(String.Format(Strings.ExceptionData, key, ex.Data[key].ToString()));
                 }
             }
             if (!string.IsNullOrEmpty(message))
             {
-                Console.WriteLine($"Message: {message}");
+                Console.WriteLine(String.Format(Strings.ExceptionMessage,message));
             }
 
-            Console.WriteLine(sectionSeparatorEnd);
+            Console.WriteLine(Strings.LoggerEndSeparator);
         }
     }
 }

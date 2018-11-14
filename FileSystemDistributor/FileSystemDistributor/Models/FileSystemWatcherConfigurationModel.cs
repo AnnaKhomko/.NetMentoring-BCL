@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemDistributor.Models
 {
 	/// <summary>
-	/// 
+	/// Class contains properties for File System Watcher 
 	/// </summary>
 	public class FileSystemWatcherConfigurationModel
 	{

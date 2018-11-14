@@ -150,4 +150,25 @@
   <data name="FileDeleted" xml:space="preserve">
     <value>Старая версия файла {0} удалена.</value>
   </data>
+  <data name="CtrlBreakType" xml:space="preserve">
+    <value>Ctrl+Break получено</value>
+  </data>
+  <data name="CtrlCType" xml:space="preserve">
+    <value>Ctrl+C получено</value>
+  </data>
+  <data name="ExceptionData" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="ExceptionDataMessage" xml:space="preserve">
+    <value>Детали исключения:</value>
+  </data>
+  <data name="ExceptionMessage" xml:space="preserve">
+    <value>Сообщение: {0}</value>
+  </data>
+  <data name="LoggerEndSeparator" xml:space="preserve">
+    <value>Конец информации об исключениях</value>
+  </data>
+  <data name="LoggerStartSeparator" xml:space="preserve">
+    <value>Информация об исключениях</value>
+  </data>
 </root>

@@ -2,7 +2,10 @@
 
 namespace FileSystemDistributor.Utils.Interfaces
 {
-    public interface ILogger
+	/// <summary>
+	/// Custom logger
+	/// </summary>
+	public interface ILogger
     {
         /// <summary>
         /// Log a message

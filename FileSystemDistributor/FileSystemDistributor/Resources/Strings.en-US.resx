@@ -150,4 +150,25 @@
   <data name="FileDeleted" xml:space="preserve">
     <value>The old version of file {0} deleted.</value>
   </data>
+  <data name="CtrlBreakType" xml:space="preserve">
+    <value>Ctrl+Break received</value>
+  </data>
+  <data name="CtrlCType" xml:space="preserve">
+    <value>Ctrl+C received</value>
+  </data>
+  <data name="ExceptionData" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="ExceptionDataMessage" xml:space="preserve">
+    <value>Exception data:</value>
+  </data>
+  <data name="ExceptionMessage" xml:space="preserve">
+    <value>Message: {0}</value>
+  </data>
+  <data name="LoggerEndSeparator" xml:space="preserve">
+    <value>End of exception information</value>
+  </data>
+  <data name="LoggerStartSeparator" xml:space="preserve">
+    <value>Exceptions information</value>
+  </data>
 </root>

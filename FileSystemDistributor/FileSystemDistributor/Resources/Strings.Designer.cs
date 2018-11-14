@@ -70,11 +70,56 @@ namespace FileSystemDistributor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ctrl+Break received.
+        /// </summary>
+        internal static string CtrlBreakType {
+            get {
+                return ResourceManager.GetString("CtrlBreakType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ctrl+C received.
+        /// </summary>
+        internal static string CtrlCType {
+            get {
+                return ResourceManager.GetString("CtrlCType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Culture established: neutral..
         /// </summary>
         internal static string CurrentCulture {
             get {
                 return ResourceManager.GetString("CurrentCulture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: {1}.
+        /// </summary>
+        internal static string ExceptionData {
+            get {
+                return ResourceManager.GetString("ExceptionData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception data: .
+        /// </summary>
+        internal static string ExceptionDataMessage {
+            get {
+                return ResourceManager.GetString("ExceptionDataMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message: {0}.
+        /// </summary>
+        internal static string ExceptionMessage {
+            get {
+                return ResourceManager.GetString("ExceptionMessage", resourceCulture);
             }
         }
         
@@ -138,6 +183,24 @@ namespace FileSystemDistributor.Resources {
         internal static string FileNotFound {
             get {
                 return ResourceManager.GetString("FileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End of exception information.
+        /// </summary>
+        internal static string LoggerEndSeparator {
+            get {
+                return ResourceManager.GetString("LoggerEndSeparator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception information.
+        /// </summary>
+        internal static string LoggerStartSeparator {
+            get {
+                return ResourceManager.GetString("LoggerStartSeparator", resourceCulture);
             }
         }
         

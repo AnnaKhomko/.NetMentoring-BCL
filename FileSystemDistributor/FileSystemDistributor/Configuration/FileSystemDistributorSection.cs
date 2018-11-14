@@ -4,7 +4,7 @@ using System.Globalization;
 namespace FileSystemDistributor.Configuration
 {
     /// <summary>
-    /// 
+    /// Class describes configuration section elements from App.config file
     /// </summary>
     /// <seealso cref="System.Configuration.ConfigurationSection" />
     public class FileSystemDistributorSection : ConfigurationSection

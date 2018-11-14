@@ -1,21 +1,16 @@
-﻿using FileSystemDistributor.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FileSystemDistributor.Models
 {
 	/// <summary>
-	/// 
+	/// Class contains config data
 	/// </summary>
 	public class ConfigModel
 	{
 		public ConfigModel()
 		{
-			this.Directories = new List<DirectoryElement>();
-			this.Rules = new List<RuleElement>();
+			this.Directories = new List<DirectoryModel>();
+			this.Rules = new List<RuleModel>();
 		}
 
 		/// <summary>
@@ -32,7 +27,7 @@ namespace FileSystemDistributor.Models
 		/// <value>
 		/// The directories.
 		/// </value>
-		public List<DirectoryElement> Directories { get; set; }
+		public List<DirectoryModel> Directories { get; set; }
 
 		/// <summary>
 		/// Gets or sets the rules.
@@ -40,6 +35,6 @@ namespace FileSystemDistributor.Models
 		/// <value>
 		/// The rules.
 		/// </value>
-		public List<RuleElement> Rules { get; set; }
+		public List<RuleModel> Rules { get; set; }
 	}
 }

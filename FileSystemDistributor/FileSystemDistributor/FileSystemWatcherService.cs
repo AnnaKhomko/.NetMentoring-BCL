@@ -7,6 +7,7 @@ using Strings = FileSystemDistributor.Resources.Strings;
 using FileSystemDistributor.EventArgs;
 using FileSystemDistributor.Models;
 using FileSystemDistributor.Utils;
+using IoCContainer.Attributes;
 
 namespace FileSystemDistributor
 {

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace FileSystemDistributor.EventArgs
 {
 	/// <summary>
-	/// 
+	/// Class describes arguments to be used for events
 	/// </summary>
 	/// <seealso cref="System.EventArgs" />
 	public class FileCreatedEventArgs : System.EventArgs
