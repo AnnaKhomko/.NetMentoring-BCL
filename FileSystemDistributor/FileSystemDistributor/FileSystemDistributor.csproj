@@ -80,7 +80,7 @@
     <EmbeddedResource Include="Resources\Strings.ru-RU.resx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IoCContainer\IoCContainer\IoCContainer.csproj">
+    <ProjectReference Include="..\IoCContainer\IoCContainer.csproj">
       <Project>{8a56dab3-8283-47ee-ada8-be32dfb81b38}</Project>
       <Name>IoCContainer</Name>
     </ProjectReference>

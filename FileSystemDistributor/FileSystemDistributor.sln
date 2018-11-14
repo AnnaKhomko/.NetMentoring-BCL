@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemDistributor", "FileSystemDistributor\FileSystemDistributor.csproj", "{4F7F0D86-CDFB-446C-8817-211ED38596C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCContainer", "..\IoCContainer\IoCContainer\IoCContainer.csproj", "{8A56DAB3-8283-47EE-ADA8-BE32DFB81B38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCContainer", "IoCContainer\IoCContainer.csproj", "{8A56DAB3-8283-47EE-ADA8-BE32DFB81B38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
